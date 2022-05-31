@@ -1,3 +1,0 @@
-/home/matheus/Área de Trabalho/PilhaDinamica/cmake-build-debug/CMakeFiles/PilhaDinamica.dir
-/home/matheus/Área de Trabalho/PilhaDinamica/cmake-build-debug/CMakeFiles/edit_cache.dir
-/home/matheus/Área de Trabalho/PilhaDinamica/cmake-build-debug/CMakeFiles/rebuild_cache.dir
