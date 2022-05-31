@@ -1,0 +1,3 @@
+/home/matheus/Área de Trabalho/Estrutura_de_Dados/Arvore/cmake-build-debug/CMakeFiles/Lista.dir
+/home/matheus/Área de Trabalho/Estrutura_de_Dados/Arvore/cmake-build-debug/CMakeFiles/edit_cache.dir
+/home/matheus/Área de Trabalho/Estrutura_de_Dados/Arvore/cmake-build-debug/CMakeFiles/rebuild_cache.dir
