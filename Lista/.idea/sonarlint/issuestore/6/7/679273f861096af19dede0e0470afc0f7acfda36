@@ -1,5 +1,0 @@
-
-T	cpp:S5028"8Replace this macro by "const", "constexpr" or an "enum".(Õ›‘Ž8Àã»¶†0
-S	cpp:S5945"2Use "std::string" instead of a C-style char array.(˜Óšóþÿÿÿÿ8­Õò½†0
-W	cpp:S5416";"using" should be preferred to "typedef" for type aliasing.(Ûª ˆ8­Õò½†0
-W	cpp:S5416";"using" should be preferred to "typedef" for type aliasing.(ÚÈˆÉ8Áã»¶†0

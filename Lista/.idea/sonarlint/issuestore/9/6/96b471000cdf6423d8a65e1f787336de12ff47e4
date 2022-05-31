@@ -1,21 +1,0 @@
-
-.c:S18748"'gets' is deprecated(÷àà8ÏøÎ½†0
-7c:S125°"Remove the commented out code.(à¬Â38‰ñğÀ†0
-8c:S125µ"Remove the commented out code.(è…‹¬8‰ñğÀ†0
-=c:S125¸"Remove the commented out code.(òğ™¯ÿÿÿÿÿ8‰ñğÀ†0
-8c:S125¾"Remove the commented out code.(è…‹¬8‰ñğÀ†0
-=c:S125Á"Remove the commented out code.(òğ™¯ÿÿÿÿÿ8‰ñğÀ†0
-8c:S125Ç"Remove the commented out code.(è…‹¬8‰ñğÀ†0
-Cc:S10818"0Remove the use of this insecure "gets" function.(÷àà
-rc:S995B"[Make the type of this parameter a pointer-to-const. The current type of "nome" is "char *".(İ±ôúûÿÿÿÿ
-nc:S3776T"TRefactor this function to reduce its Cognitive Complexity from 31 to the 25 allowed.(ş¦ëï8›…ÁÀ†0
-kc:S134^"MRefactor this code to not nest more than 3 if|for|do|while|switch statements.(ºƒúÀûÿÿÿÿ8›…ÁÀ†0
-kc:S134k"MRefactor this code to not nest more than 3 if|for|do|while|switch statements.(¤ØÂÊüÿÿÿÿ8›…ÁÀ†0
-fc:S134x"MRefactor this code to not nest more than 3 if|for|do|while|switch statements.(ìÑ¼ù8›…ÁÀ†0
-Cc:S1659V"0Define each identifier in a dedicated statement.(®§Óª
-Ic:S5955¥")Declare the variable "i" inside the loop.(ú¯æóùÿÿÿÿ8‘ñğÀ†0
-Pc:S1659 "0Define each identifier in a dedicated statement.(û›êõúÿÿÿÿ8¢…ÁÀ†0
-?c:S3520Š"Attempt to free released memory(‡Î£úÿÿÿÿ8±—ñÀ†0
-?c:S3520‹"Attempt to free released memory(£‘®¹üÿÿÿÿ8±—ñÀ†0
-?c:S3529–"Use of memory after it is freed(¼Œ§âÿÿÿÿÿ8±—ñÀ†0
-:c:S3529§"Use of memory after it is freed(¦ñØ‚8ä±Á†0
