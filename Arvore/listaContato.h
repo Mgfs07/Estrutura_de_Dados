@@ -6,20 +6,20 @@
 typedef struct elementoContato{
     char nome[40];
     long telefone;
-    struct elementoContato * prox, *ant;
+    struct elementoContato * direita, *esquerda;
 }TElementoContato;
 
-
-typedef struct listaContato{
-    TElementoContato *inicio, *fim;
-} TListaContato;
-
-
-void iniciaLista(TListaContato * lista);
-TElementoContato * buscarPorNome(TListaContato listaContato, char * nome);
-TElementoContato * buscarNumero(TListaContato listaContato, long telefone);
-TElementoContato * insereListaContato(TListaContato * lista, char * nome, long numeroTelefone);
-int excluirContatoNome(TListaContato * lista, char * nome);
-void listarTodos(TListaContato *lista);
+//OK
+void iniciaLista(TElementoContato ** arvore);
+//
+TElementoContato * buscarPorNome(TElementoContato arvore, char * nome);
+//
+TElementoContato * buscarNumero(TElementoContato listaContato, long telefone);
+//
+TElementoContato * insereListaContato(TElementoContato * lista, char * nome, long numeroTelefone);
+//
+int excluirContatoNome(TElementoContato * lista, char * nome);
+//
+void listarTodos(TElementoContato *lista);
 
 #endif //LISTA_H
