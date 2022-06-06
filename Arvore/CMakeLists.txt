@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.21)
-project(Lista C)
+project(Arvore C)
 
 set(CMAKE_C_STANDARD 99)
 
-add_executable(Lista main.c listaContato.h listaContato.c)
+add_executable(Arvore main.c listaContato.h listaContato.c)

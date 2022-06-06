@@ -2,7 +2,7 @@
 	"artifacts" : 
 	[
 		{
-			"path" : "Lista"
+			"path" : "Arvore"
 		}
 	],
 	"backtrace" : 1,
@@ -57,7 +57,7 @@
 			]
 		}
 	],
-	"id" : "Lista::@6890427a1f51a3e7e1df",
+	"id" : "Arvore::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
@@ -73,8 +73,8 @@
 		],
 		"language" : "C"
 	},
-	"name" : "Lista",
-	"nameOnDisk" : "Lista",
+	"name" : "Arvore",
+	"nameOnDisk" : "Arvore",
 	"paths" : 
 	{
 		"build" : ".",
