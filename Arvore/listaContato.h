@@ -11,15 +11,13 @@ typedef struct elementoContato{
 
 //OK
 void iniciaLista(TElementoContato ** arvore);
-//
-TElementoContato * buscarPorNome(TElementoContato arvore, char * nome);
-//
-TElementoContato * buscarNumero(TElementoContato listaContato, long telefone);
-//
-TElementoContato * insereListaContato(TElementoContato * lista, char * nome, long numeroTelefone);
-//
-int excluirContatoNome(TElementoContato * lista, char * nome);
-//
-void listarTodos(TElementoContato *lista);
+//OK
+TElementoContato * consultarNome(TElementoContato *  arvore, char * nome);
+//OK
+TElementoContato * consultarNumero(TElementoContato *  arvore, long numeroTelefone);
+//OK
+int insereListaContato(TElementoContato ** raiz, char * nome, long numeroTelefone);
+//OK
+void inserirNovo(TElementoContato ** arvore, TElementoContato * novo);
 
 #endif //LISTA_H
