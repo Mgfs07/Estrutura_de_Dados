@@ -37,7 +37,7 @@ int main() {
                     printf("CONTATO INSERIDO COM SUCESSO\n\n");
                 } else {
                     printf("\nContato já existe\n");
-                    printf("Nome -> %s / Telefone -> %ld", contato->nome, contato->telefone);
+                    printf("Nome -> %s / Telefone -> %ld\n\n", contato->nome, contato->telefone);
                 }
                 break;
             case 2:
