@@ -8,103 +8,50 @@ void iniciaLista(TElementoContato ** arvore) {
     *arvore = NULL;
 }
 
-//TElementoContato * insereListaContato(TElementoContato * lista, char * nome, long numeroTelefone){
-//    TElementoContato *novo = (TElementoContato *) malloc(sizeof(TElementoContato));
-//    TElementoContato * atual;
-//    strcpy(novo->nome, nome);
-//    novo->telefone = numeroTelefone;
-//    if(lista->inicio == NULL){
-//        novo->direita = NULL;
-//        lista->inicio = novo;
-//        lista->fim = novo;
-//        novo->esquerda = NULL;
-//    }else {
-//        atual = lista->inicio;
-//        while ((atual != NULL) && (strcmp(atual->nome, nome) < 0))
-//            atual = atual->direita;
-//        if (atual == lista->inicio) {
-//            novo->esquerda = NULL;
-//            novo->direita = atual;
-//            atual->esquerda = novo;
-//            lista->inicio = novo;
-//        } else if (atual == NULL) {
-//            novo->esquerda = lista->fim;
-//            novo->direita = NULL;
-//            lista->fim->direita = novo;
-//            lista->fim = novo;
-//        } else {
-//            novo->direita = atual;
-//            novo->esquerda = atual->esquerda;
-//            atual->esquerda->direita = novo;
-//            atual->esquerda = novo;
-//        }
-//    }
-//    return novo;
-//
-//}
-//
-//int listaVazia(TElementoContato f) {
-//    if (f.inicio == NULL)
-//        return 1;
-//    else
-//        return 0;
-//}
-//
-////metodo de excluir o contato
-//int excluirContatoNome(TListaContato * lista, char * nome){
-//    TElementoContato *atual, *anterior;
-//    anterior = NULL;
-//    int excluido = 0;
-//    atual = buscarPorNome(*lista, nome);
-//    if(listaVazia(*lista) == 1){
-//        printf("FILA ESTA VAZIA, NAO PODE EXCLUIR NINGUEM");
-//    }else{
-//        if(atual){
-//            excluido = 1;
-//            anterior = atual->esquerda;
-//            if(anterior == NULL) lista->inicio = atual->direita;
-//            else anterior->direita = atual->direita;
-//
-//            if(atual == lista->fim) lista->fim = NULL;
-//            free(atual);
-//        }
-//    }
-//    return excluido;
-//}
-//
-//TElementoContato * buscarPorNome(TListaContato arvore, char * nome){
-//    TElementoContato * atual;
-//    atual = arvore.inicio;
-//    while ((atual != NULL) && (strcmp(nome,atual->nome)>0)) {
-//        atual = atual->direita;
-//    }
-//    if(atual != NULL && (strcmp(nome,atual->nome)==0)){
-//        return atual;
-//    }else{
-//        return NULL;
-//    }
-//}
-//
-//TElementoContato * buscarNumero(TListaContato listaContato, long telefone){
-//    TElementoContato * atual;
-//    atual = listaContato.inicio;
-//    while ((atual != NULL) && (atual->telefone != telefone)){
-//        atual = atual->direita;
-//    }
-//    if(atual != NULL && atual->telefone == telefone){
-//        return atual;
-//    }else{
-//        return NULL;
-//    }
-//}
-//
-//void listarTodos(TListaContato *lista){
-//    TElementoContato * atual;
-//    atual = lista->inicio;
-//    while (atual != NULL){
-//        printf("\n\nNome -> %s", atual->nome);
-//        printf("\n\nTelefone -> %ld,", atual->telefone);
-//        atual = atual->direita;
-//        printf("\n\n=================\n\n");
-//    }
-//}
+TElementoContato * consultarNome(TElementoContato * arvore, char * nome){
+    if(arvore == NULL)
+        return NULL;
+    else if(strcmp(nome, arvore->nome) == 0)
+        return arvore;
+    else if(strcmp(nome, arvore->nome) > 0)
+        return consultarNome(arvore->direita, nome);
+    else
+        return consultarNome(arvore->esquerda, nome);
+}
+
+TElementoContato * consultarNumero(TElementoContato * arvore, long numeroTelefone){
+    if(arvore == NULL)
+        return NULL;
+    else if(arvore->telefone == numeroTelefone)
+        return arvore;
+    else if(numeroTelefone > arvore->telefone)
+        return consultarNumero(arvore->direita, numeroTelefone);
+    else
+        return consultarNumero(arvore->esquerda, numeroTelefone);
+}
+
+
+int insereListaContato(TElementoContato ** arvore, char * nome, long numeroTelefone){
+    if (consultarNome(*arvore, nome) == NULL){
+        TElementoContato * novo = (TElementoContato *) malloc(sizeof (TElementoContato));
+        novo->telefone = numeroTelefone;
+        strcpy(novo->nome, nome);
+        novo->esquerda = NULL;
+        novo->direita = NULL;
+        inserirNovo(arvore,novo);
+        return 1;
+    }else
+        return 0;
+}
+
+void inserirNovo(TElementoContato ** arvore, TElementoContato * novo){
+    if(*arvore == NULL)
+        *arvore = novo;
+    else{
+        if (strcmp(novo->nome, (*arvore)->nome) > 0){
+            ((*arvore)->direita == NULL) ? (*arvore)->direita = novo : inserirNovo(&(*arvore)->direita, novo);
+        }else {
+            ((*arvore)->esquerda == NULL) ? (*arvore)->esquerda = novo : inserirNovo(&(*arvore)->esquerda, novo);
+        }
+    }
+}
