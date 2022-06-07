@@ -36,7 +36,6 @@ int main() {
             case 2:
                 break;
             case 3:
-                break;
             case 4:
                 printf("insira o nome que deseja pesquisar: ");
                 gets(nome);
@@ -47,7 +46,7 @@ int main() {
                 printf("insira o numero que deseja pesquisar: ");
                 scanf("%ld", &numeroTelefone);
                 contato = consultarNumero(arvore, numeroTelefone);
-                !contato ? printf("\n\nNÃO EXISTE CONTATO EXISTENTE") : printf("\nContato existe Nome -> %s Telefone -> %ld\n", contato->nome, contato->telefone);
+                contato ? printf("\nContato existe \nNome -> %s Telefone -> %ld\n", contato->nome, contato->telefone) : printf("\n\nNÃO EXISTE CONTATO EXISTENTE") ;
                 break;
             default:
                 printf("Valor incorreto\n");
