@@ -55,3 +55,12 @@ void inserirNovo(TElementoContato ** arvore, TElementoContato * novo){
         }
     }
 }
+
+void ordem(TElementoContato *raiz){
+    if(raiz!=NULL){
+        ordem((raiz)->esquerda);
+        printf("\n\nNome = %s", (raiz)->nome);
+        printf("\nTelefone = %ld", (raiz)->telefone);
+        ordem((raiz)->direita);
+    }
+}

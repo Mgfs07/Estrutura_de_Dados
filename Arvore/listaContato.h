@@ -20,4 +20,6 @@ int insereListaContato(TElementoContato ** raiz, char * nome, long numeroTelefon
 //OK
 void inserirNovo(TElementoContato ** arvore, TElementoContato * novo);
 
+void ordem(TElementoContato *raiz);
+
 #endif //LISTA_H

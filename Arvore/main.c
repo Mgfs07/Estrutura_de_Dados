@@ -36,6 +36,8 @@ int main() {
             case 2:
                 break;
             case 3:
+                ordem(arvore);
+                break;
             case 4:
                 printf("insira o nome que deseja pesquisar: ");
                 gets(nome);
