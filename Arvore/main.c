@@ -16,7 +16,7 @@ int main() {
         printf("0 - Sair\n");
         printf("1 - Inserir na Árvore\n");
         printf("2 - Remover da Árvore\n");
-        printf("3 - Exibir toda a Lista com os Contatos\n");
+        printf("3 - Exibir toda a Árvore com os Contatos\n");
         printf("4 - Buscar Contato pelo Nome\n");
         printf("5 - Buscar Contato pelo Numero\n");
         printf("Informe um valor: ");
@@ -34,6 +34,9 @@ int main() {
                 insereListaContato( &arvore, nome, numeroTelefone);
                 break;
             case 2:
+                printf("insira um nome que deseja excluir");
+                gets(nome);
+                remover(&arvore, nome);
                 break;
             case 3:
                 ordem(arvore);
@@ -42,7 +45,7 @@ int main() {
                 printf("insira o nome que deseja pesquisar: ");
                 gets(nome);
                 contato = consultarNome(arvore, nome);
-                !contato ? printf("\n\nNÃO EXISTE CONTATO EXISTENTE") : printf("\nContato existe Nome -> %s Telefone -> %ld\n", contato->nome, contato->telefone);
+                contato ? printf("\nContato existe\n Nome -> %s Telefone -> %ld\n", contato->nome, contato->telefone) : printf("\n\nNÃO EXISTE CONTATO EXISTENTE");
                 break;
             case 5:
                 printf("insira o numero que deseja pesquisar: ");

@@ -22,4 +22,10 @@ void inserirNovo(TElementoContato ** arvore, TElementoContato * novo);
 
 void ordem(TElementoContato *raiz);
 
+TElementoContato *maiorDireita(TElementoContato **no);
+
+TElementoContato *menorEsquerda(TElementoContato **no);
+
+void remover(TElementoContato **pRaiz, char * nome);
+
 #endif //LISTA_H
