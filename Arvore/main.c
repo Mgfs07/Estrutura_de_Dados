@@ -12,10 +12,10 @@ int main() {
     char nome[TAMANHO];
 
     do {
-        printf("\nOpcoes: \n");
+        printf("\n\nOpcoes: \n");
         printf("0 - Sair\n");
-        printf("1 - Inserir na Fila\n");
-        printf("2 - Remover da Fila\n");
+        printf("1 - Inserir na Árvore\n");
+        printf("2 - Remover da Árvore\n");
         printf("3 - Exibir toda a Lista com os Contatos\n");
         printf("4 - Buscar Contato pelo Nome\n");
         printf("5 - Buscar Contato pelo Numero\n");

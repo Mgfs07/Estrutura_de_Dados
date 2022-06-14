@@ -53,6 +53,7 @@ void inserirNovo(TElementoContato ** arvore, TElementoContato * novo){
         }else {
             ((*arvore)->esquerda == NULL) ? (*arvore)->esquerda = novo : inserirNovo(&(*arvore)->esquerda, novo);
         }
+        printf("CONTATO ADICIONADO NA ARVORE");
     }
 }
 
