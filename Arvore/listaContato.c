@@ -95,6 +95,7 @@ int remover(TElementoContato **pRaiz, char * nome) {
             }else{
                 excluir = maiorDireita(&(*pRaiz)->esquerda);
                 strcpy((*pRaiz)->nome, excluir->nome);
+                (*pRaiz)->telefone = excluir->telefone;
             }
             free(excluir);
             return 1;
