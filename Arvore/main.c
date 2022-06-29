@@ -7,7 +7,7 @@ int main() {
     iniciaLista(&arvore);
     TElementoContato * contato;
 
-    int valorMenu;
+    int valorMenu, valorExcluir, inserir;
     long numeroTelefone;
     char nome[TAMANHO];
 
@@ -31,12 +31,17 @@ int main() {
                 gets(nome);
                 printf("e o numero de telefone que deseja inserir: ");
                 scanf("%ld", &numeroTelefone);
-                insereListaContato( &arvore, nome, numeroTelefone);
+                inserir = insereListaContato( &arvore, nome, numeroTelefone);
+                inserir == 1 ? printf("Contato Adicionado com Sucesso") : printf("Contato nao adicionado");
                 break;
             case 2:
-                printf("insira um nome que deseja excluir");
+                printf("insira um nome que deseja excluir: ");
                 gets(nome);
-                remover(&arvore, nome);
+                valorExcluir = remover(&arvore, nome);
+                if(valorExcluir == 1)
+                    printf("Excluido com Sucesso");
+                else
+                    printf("Contato nao excluido");
                 break;
             case 3:
                 ordem(arvore);

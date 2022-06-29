@@ -19,13 +19,11 @@ TElementoContato * consultarNumero(TElementoContato *  arvore, long numeroTelefo
 int insereListaContato(TElementoContato ** raiz, char * nome, long numeroTelefone);
 //OK
 void inserirNovo(TElementoContato ** arvore, TElementoContato * novo);
-
+//OK
 void ordem(TElementoContato *raiz);
-
+//OK
 TElementoContato *maiorDireita(TElementoContato **no);
-
-TElementoContato *menorEsquerda(TElementoContato **no);
-
-void remover(TElementoContato **pRaiz, char * nome);
+//OK
+int remover(TElementoContato **pRaiz, char * nome);
 
 #endif //LISTA_H

@@ -19,15 +19,19 @@ TElementoContato * consultarNome(TElementoContato * arvore, char * nome){
         return consultarNome(arvore->esquerda, nome);
 }
 
-TElementoContato * consultarNumero(TElementoContato * arvore, long numeroTelefone){
-    if(arvore == NULL)
+
+TElementoContato * consultarNumero(TElementoContato * raiz, long numeroTelefone){
+    if(raiz == NULL)
         return NULL;
-    else if(arvore->telefone == numeroTelefone)
-        return arvore;
-    else if(numeroTelefone > arvore->telefone)
-        return consultarNumero(arvore->direita, numeroTelefone);
-    else
-        return consultarNumero(arvore->esquerda, numeroTelefone);
+    else if(raiz->telefone == numeroTelefone)
+        return raiz;
+    else{
+        TElementoContato * elemento = consultarNumero(raiz->esquerda, numeroTelefone);
+        if (elemento != NULL)
+            return elemento;
+        else
+            return consultarNumero(raiz->direita, numeroTelefone);
+    }
 }
 
 
@@ -54,7 +58,6 @@ void inserirNovo(TElementoContato ** arvore, TElementoContato * novo){
             ((*arvore)->esquerda == NULL) ? (*arvore)->esquerda = novo : inserirNovo(&(*arvore)->esquerda, novo);
         }
     }
-    printf("CONTATO ADICIONADO COM SUCESSO");
 }
 
 void ordem(TElementoContato *raiz){
@@ -65,6 +68,7 @@ void ordem(TElementoContato *raiz){
         ordem((raiz)->direita);
     }
 }
+
 
 TElementoContato *maiorDireita(TElementoContato **no){
     if((*no)->direita != NULL)
@@ -79,61 +83,27 @@ TElementoContato *maiorDireita(TElementoContato **no){
     }
 }
 
-TElementoContato *menorEsquerda(TElementoContato **no){
-    if((*no)->direita != NULL)
-        return menorEsquerda(&(*no)->esquerda);
-    else{
-        TElementoContato *aux = *no;
-        if((*no)->direita != NULL)
-            *no = (*no)->direita;
-        else
-            *no = NULL;
-        return aux;
-    }
-}
+int remover(TElementoContato **pRaiz, char * nome) {
+    TElementoContato * excluir;
+    if(*pRaiz != NULL){
+        if(strcmp((*pRaiz)->nome, nome) == 0){
+            excluir = *pRaiz;
+            if((*pRaiz)->esquerda == NULL){
+                *pRaiz = (*pRaiz)->direita;
+            }else if((*pRaiz)->direita == NULL){
+                *pRaiz = (*pRaiz)->esquerda;
+            }else{
+                excluir = maiorDireita(&(*pRaiz)->esquerda);
+                strcpy((*pRaiz)->nome, excluir->nome);
+            }
+            free(excluir);
+            return 1;
+        }
+        else if(strcmp(nome,(*pRaiz)->nome) < 0){
+            return remover(&(*pRaiz)->esquerda, nome);
+        } else
+            return remover(&(*pRaiz)->direita, nome);
 
-void remover(TElementoContato **pRaiz, char * nome){
-    TElementoContato * contato;
-    contato = consultarNome(*pRaiz, nome);
-    if((*pRaiz == NULL) || (contato == NULL)){
-        printf("Numero nao existe na arvore!");
-        return;
-    }
-//    if(strcmp(nome,(*pRaiz)->nome) < 0)
-//        remover(&(*pRaiz)->esquerda, nome);
-//    else
-//    if(strcmp(nome,(*pRaiz)->nome) > 0)
-//        remover(&(*pRaiz)->direita, nome);
-    else{
-        TElementoContato *pAux = *pRaiz;
-        if (((*pRaiz)->esquerda == NULL) && ((*pRaiz)->direita == NULL)){
-            free(pAux);
-            (*pRaiz) = NULL;
-        }
-        else{
-            if ((*pRaiz)->esquerda == NULL){
-                (*pRaiz) = (*pRaiz)->direita;
-                pAux->direita = NULL;
-                free(pAux);
-                pAux = NULL;
-            }
-            else{
-                if ((*pRaiz)->direita == NULL){
-                    (*pRaiz) = (*pRaiz)->esquerda;
-                    pAux->esquerda = NULL;
-                    free(pAux);
-                    pAux = NULL;
-                }
-                else{
-                    pAux = maiorDireita(&(*pRaiz)->esquerda);
-                    pAux->esquerda = (*pRaiz)->esquerda;
-                    pAux->direita = (*pRaiz)->direita;
-                    (*pRaiz)->esquerda = (*pRaiz)->direita = NULL;
-                    free((*pRaiz));
-                    *pRaiz = pAux;
-                    pAux = NULL;
-                }
-            }
-        }
-    }
+    } else
+        return 0;
 }
